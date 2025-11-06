@@ -1,9 +1,39 @@
 body {
-  font-family: Arial, sans-serif;
-  margin: 40px auto;
-  max-width: 700px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
   line-height: 1.6;
   color: #333;
+  background-color:#fff9f1
+}
+
+header {
+    margin-top: 10vh;
+    height: 100vh;
+}
+
+.intro {
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    margin-bottom: 10vh;
+    justify-content: center;
+}
+
+.intro h1 {
+    font-size: 4rem;
+}
+
+.intro p {
+    font-size: 2rem;
+}
+
+.header-text {
+    width: 35vw;
+}
+
+.header-image {
+    width: 30vw;
 }
 
 header, footer {
