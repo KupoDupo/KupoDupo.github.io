@@ -26,15 +26,35 @@
   </header>
 
   <section id="about">
-    <h2>About Me</h2>
-    <p>
-      I enjoy building games using tools like Unity and Godot. 
-      I’m passionate about gameplay mechanics, creative visuals, and making things that players enjoy.
-    </p>
+    <div class="reveal"> 
+      <h2>About Me</h2>
+      <p>
+        I enjoy building games using tools like Unity and Godot. 
+        I’m passionate about gameplay mechanics, creative visuals, and making things that players enjoy.
+      </p>
+    </div>
   </section>
 
   <footer>
     <p>© 2025 Loisel Kleijnen | <a href="mailto:lnkleijnen@gmail.com">Contact Me</a></p>
   </footer>
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            } else {
+                entry.target.classList.remove('show');
+            }
+        });
+    }, {
+        // This threshold value means the callback will run 
+        // when element becomes 20% visible or invisible
+        threshold: 0.2
+    });
+
+    const hiddenElements = document.querySelectorAll('.reveal');
+    hiddenElements.forEach((el) => observer.observe(el));
+  </script>
 </body>
 </html>
