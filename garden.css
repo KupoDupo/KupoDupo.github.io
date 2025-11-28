@@ -1,0 +1,143 @@
+/* Garden Theme: Earthy greens + growing flowers on reveal */
+:root {
+  --bg-1: #0f1f14;     /* deep forest */
+  --bg-2: #12261a;     /* richer evergreen */
+  --bg-3: #1a3626;     /* mid green */
+  --text: #eaf2e4;     /* soft off-white */
+  --muted: #c7d7c0;    /* muted leaf */
+  --leaf: #3a5a40;     /* leaf dark */
+  --leaf-mid: #587d61; /* leaf mid */
+  --accent: #b7d3a8;   /* moss highlight */
+  --flower-1: #f3c2d7; /* pink bloom */
+  --flower-2: #ffd79a; /* warm bloom */
+  --flower-3: #f6a6a6; /* coral bloom */
+}
+
+/* Base overrides for this page */
+body {
+  background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 40%, var(--bg-3) 100%);
+  color: var(--text);
+}
+
+nav {
+  background: rgba(16, 32, 24, 0.55);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(6px);
+}
+
+header {
+  min-height: 84vh;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(1200px 500px at 50% -10%, rgba(183,211,168,0.18), transparent 60%),
+              radial-gradient(900px 400px at 10% 0%, rgba(88,125,97,0.18), transparent 55%),
+              radial-gradient(900px 400px at 90% 0%, rgba(58,90,64,0.2), transparent 55%);
+}
+
+.intro h1 { color: var(--accent); }
+.intro p { color: var(--muted); }
+
+a { color: var(--accent); }
+a:hover { color: #dff0d2; text-decoration: underline; }
+
+.more-projects { background: linear-gradient(135deg, rgba(88,125,97,0.35), rgba(183,211,168,0.25)); }
+.project-item { background: rgba(255,255,255,0.03); border-radius: 10px; border: 1px solid rgba(255,255,255,0.06); }
+.project-grid { display: grid; grid-template-columns: 1fr 380px; gap: 1.2rem; align-items: start; }
+.project-details { padding: 0.5rem 0.25rem; }
+
+/* Project preview frames */
+.project-preview { border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.25); }
+.preview-aspect { position: relative; width: 100%; aspect-ratio: 16/9; background: rgba(0,0,0,0.25); }
+.preview-aspect.small { aspect-ratio: 4/3; }
+.preview-frame { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.preview-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.project-item + .project-item { margin-top: 1.2rem; }
+
+@media (max-width: 900px) {
+  .project-grid { grid-template-columns: 1fr; }
+  .project-preview { margin-top: 0.6rem; }
+}
+
+/* Optional: dim unity play UI chrome to fit theme */
+.project-item h3 { margin-bottom: 0.25rem; }
+
+section { position: relative; }
+
+/* Reveal base + garden layering */
+.reveal { position: relative; z-index: 1; }
+.reveal > *:not(.vines) { position: relative; z-index: 2; }
+
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity .8s ease, transform .8s ease; }
+.reveal.show { opacity: 1; transform: translateY(0); }
+
+/* Vines container under content */
+.vines {
+  pointer-events: none;
+  position: absolute;
+  left: 0; right: 0; bottom: -6px;
+  height: 220px;
+  z-index: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+}
+
+.vine { width: 100%; height: 100%; }
+.vine.right { transform: scaleX(-1); }
+
+/* Stem draw animation */
+.vine .stem {
+  fill: none;
+  stroke: var(--leaf);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 420;
+  stroke-dashoffset: 420;
+  transition: stroke-dashoffset 1600ms cubic-bezier(.2,.8,.2,1);
+}
+
+/* Leaves */
+.vine .leaf {
+  fill: var(--leaf-mid);
+  opacity: 0;
+  transform-origin: center;
+  transform: scale(.7) translateY(6px) rotate(-6deg);
+  transition: transform 500ms ease, opacity 500ms ease;
+}
+
+/* Flowers bloom */
+.vine .flower {
+  opacity: 0;
+  transform-origin: bottom center;
+  transform: translateY(8px) scale(.6) rotate(-3deg);
+  transition: transform 600ms ease, opacity 600ms ease;
+}
+.vine .petal { fill: var(--flower-1); }
+.vine .petal.alt { fill: var(--flower-2); }
+.vine .center { fill: #3e2a20; opacity: .9; }
+
+/* Trigger animations on reveal */
+.reveal.show .vine .stem { stroke-dashoffset: 0; }
+.reveal.show .vine .leaf { opacity: 1; transform: scale(1) translateY(0) rotate(0deg); }
+.reveal.show .vine .flower { opacity: 1; transform: translateY(0) scale(1) rotate(0deg); }
+
+/* Stagger blooms */
+.vine .flower[data-delay="1"] { transition-delay: 300ms; }
+.vine .flower[data-delay="2"] { transition-delay: 480ms; }
+.vine .flower[data-delay="3"] { transition-delay: 660ms; }
+.vine .flower[data-delay="4"] { transition-delay: 820ms; }
+.vine .leaf[data-delay="1"] { transition-delay: 250ms; }
+.vine .leaf[data-delay="2"] { transition-delay: 420ms; }
+.vine .leaf[data-delay="3"] { transition-delay: 600ms; }
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .vine .stem, .vine .leaf, .vine .flower { transition: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .vine .stem { stroke-dashoffset: 0 !important; }
+  .vine .leaf, .vine .flower { opacity: 1 !important; transform: none !important; }
+}
+
+/* De-emphasize the old pink cloud on this page */
+.about-cloud { display: none; }

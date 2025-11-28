@@ -8,6 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Loisel Kleijnen Portfolio</title>
   <link rel="stylesheet" href="style.css">
+  <!-- Garden theme overrides for this page -->
+  <link rel="stylesheet" href="garden.css">
 </head>
 <body>
   <nav>
@@ -27,17 +29,113 @@
 
   <section class="projects">
     <div class="reveal">
+      <div class="vines" aria-hidden="true">
+        <svg class="vine left" viewBox="0 0 300 220" preserveAspectRatio="xMinYMax meet">
+          <path class="stem" d="M20 220 C 40 180, 60 150, 84 128 S 130 90, 150 62 S 190 30, 210 18"/>
+          <ellipse class="leaf" data-delay="1" cx="72" cy="140" rx="8" ry="14"/>
+          <ellipse class="leaf" data-delay="2" cx="118" cy="92" rx="7" ry="12"/>
+          <g class="flower" data-delay="1">
+            <circle class="petal" cx="84" cy="128" r="7"/>
+            <circle class="petal alt" cx="89" cy="122" r="6"/>
+            <circle class="center" cx="86" cy="126" r="2.6"/>
+          </g>
+          <g class="flower" data-delay="2">
+            <circle class="petal" cx="150" cy="62" r="8"/>
+            <circle class="petal alt" cx="156" cy="58" r="6.5"/>
+            <circle class="center" cx="152" cy="60" r="3"/>
+          </g>
+        </svg>
+        <svg class="vine right" viewBox="0 0 300 220" preserveAspectRatio="xMinYMax meet">
+          <path class="stem" d="M20 220 C 40 180, 60 150, 84 128 S 130 90, 150 62 S 190 30, 210 18"/>
+          <ellipse class="leaf" data-delay="1" cx="72" cy="140" rx="8" ry="14"/>
+          <ellipse class="leaf" data-delay="2" cx="118" cy="92" rx="7" ry="12"/>
+          <g class="flower" data-delay="3">
+            <circle class="petal" cx="84" cy="128" r="7"/>
+            <circle class="petal alt" cx="89" cy="122" r="6"/>
+            <circle class="center" cx="86" cy="126" r="2.6"/>
+          </g>
+          <g class="flower" data-delay="4">
+            <circle class="petal" cx="150" cy="62" r="8"/>
+            <circle class="petal alt" cx="156" cy="58" r="6.5"/>
+            <circle class="center" cx="152" cy="60" r="3"/>
+          </g>
+        </svg>
+      </div>
       <h2>Featured Projects</h2>
       <div class="project-list">
         <div class="project-item">
-          <h3>S.P.A.C.E.</h3>
-          <p>A small space themed game built with Unity.</p>
-          <a href="https://play.unity.com/en/games/e799abed-e85b-4292-9428-fe05e054f096/space" target="_blank">Play on Unity</a>
+          <div class="project-grid">
+            <div class="project-details">
+              <h3>S.P.A.C.E.</h3>
+              <p>A small space themed game built with Unity.</p>
+              <a href="https://play.unity.com/en/games/e799abed-e85b-4292-9428-fe05e054f096/space" target="_blank">Play on Unity</a>
+            </div>
+            <div class="project-preview">
+              <div class="preview-aspect small">
+                <img class="preview-img" src="images/previews/space.jpg" alt="S.P.A.C.E. screenshot preview">
+              </div>
+            </div>
+          </div>
         </div>
         <div class="project-item">
-          <h3>Carrot Time!</h3>
-          <p>A clicker game based on collecting carrot slices.</p>
-          <a href="https://kupodupo.github.io/CMPM-121-D1-Incremental-Game/" target="_blank">Play on Github Pages</a>
+          <div class="project-grid">
+            <div class="project-details">
+              <h3>Carrot Time!</h3>
+              <p>A clicker game based on collecting carrot slices.</p>
+              <a href="https://kupodupo.github.io/CMPM-121-D1-Incremental-Game/" target="_blank">Play on Github Pages</a>
+            </div>
+            <div class="project-preview">
+              <div class="preview-aspect small">
+                <img class="preview-img" src="images/previews/carrot-time.jpg" alt="Carrot Time! screenshot preview">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blueprints for more featured projects -->
+        <div class="project-item">
+          <div class="project-grid">
+            <div class="project-details">
+              <h3>Project Name 3</h3>
+              <p>Short description of the project goes here.</p>
+              <a href="#" target="_blank">View Project</a>
+            </div>
+            <div class="project-preview">
+              <div class="preview-aspect small">
+                <img class="preview-img" src="images/previews/project-3.jpg" alt="Project 3 screenshot preview">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-item">
+          <div class="project-grid">
+            <div class="project-details">
+              <h3>Project Name 4</h3>
+              <p>Short description of the project goes here.</p>
+              <a href="#" target="_blank">View Project</a>
+            </div>
+            <div class="project-preview">
+              <div class="preview-aspect small">
+                <img class="preview-img" src="images/previews/project-4.jpg" alt="Project 4 screenshot preview">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-item">
+          <div class="project-grid">
+            <div class="project-details">
+              <h3>Project Name 5</h3>
+              <p>Short description of the project goes here.</p>
+              <a href="#" target="_blank">View Project</a>
+            </div>
+            <div class="project-preview">
+              <div class="preview-aspect small">
+                <img class="preview-img" src="images/previews/project-5.jpg" alt="Project 5 screenshot preview">
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <h3><a href="projects.html" class="more-projects">See More Projects</a></h3>
@@ -46,6 +144,38 @@
 
   <section class="about">
     <div class="reveal"> 
+      <div class="vines" aria-hidden="true">
+        <svg class="vine left" viewBox="0 0 300 220" preserveAspectRatio="xMinYMax meet">
+          <path class="stem" d="M20 220 C 40 180, 60 150, 84 128 S 130 90, 150 62 S 190 30, 210 18"/>
+          <ellipse class="leaf" data-delay="1" cx="72" cy="140" rx="8" ry="14"/>
+          <ellipse class="leaf" data-delay="2" cx="118" cy="92" rx="7" ry="12"/>
+          <g class="flower" data-delay="1">
+            <circle class="petal" cx="84" cy="128" r="7"/>
+            <circle class="petal alt" cx="89" cy="122" r="6"/>
+            <circle class="center" cx="86" cy="126" r="2.6"/>
+          </g>
+          <g class="flower" data-delay="2">
+            <circle class="petal" cx="150" cy="62" r="8"/>
+            <circle class="petal alt" cx="156" cy="58" r="6.5"/>
+            <circle class="center" cx="152" cy="60" r="3"/>
+          </g>
+        </svg>
+        <svg class="vine right" viewBox="0 0 300 220" preserveAspectRatio="xMinYMax meet">
+          <path class="stem" d="M20 220 C 40 180, 60 150, 84 128 S 130 90, 150 62 S 190 30, 210 18"/>
+          <ellipse class="leaf" data-delay="1" cx="72" cy="140" rx="8" ry="14"/>
+          <ellipse class="leaf" data-delay="2" cx="118" cy="92" rx="7" ry="12"/>
+          <g class="flower" data-delay="3">
+            <circle class="petal" cx="84" cy="128" r="7"/>
+            <circle class="petal alt" cx="89" cy="122" r="6"/>
+            <circle class="center" cx="86" cy="126" r="2.6"/>
+          </g>
+          <g class="flower" data-delay="4">
+            <circle class="petal" cx="150" cy="62" r="8"/>
+            <circle class="petal alt" cx="156" cy="58" r="6.5"/>
+            <circle class="center" cx="152" cy="60" r="3"/>
+          </g>
+        </svg>
+      </div>
       <img src="images/pink-cloud.png" alt="Pink Cloud" class="about-cloud">
       <h2>About Me</h2>
       <p>
@@ -59,6 +189,38 @@
 
   <section class="tech">
     <div class="reveal">
+      <div class="vines" aria-hidden="true">
+        <svg class="vine left" viewBox="0 0 300 220" preserveAspectRatio="xMinYMax meet">
+          <path class="stem" d="M20 220 C 40 180, 60 150, 84 128 S 130 90, 150 62 S 190 30, 210 18"/>
+          <ellipse class="leaf" data-delay="1" cx="72" cy="140" rx="8" ry="14"/>
+          <ellipse class="leaf" data-delay="2" cx="118" cy="92" rx="7" ry="12"/>
+          <g class="flower" data-delay="1">
+            <circle class="petal" cx="84" cy="128" r="7"/>
+            <circle class="petal alt" cx="89" cy="122" r="6"/>
+            <circle class="center" cx="86" cy="126" r="2.6"/>
+          </g>
+          <g class="flower" data-delay="2">
+            <circle class="petal" cx="150" cy="62" r="8"/>
+            <circle class="petal alt" cx="156" cy="58" r="6.5"/>
+            <circle class="center" cx="152" cy="60" r="3"/>
+          </g>
+        </svg>
+        <svg class="vine right" viewBox="0 0 300 220" preserveAspectRatio="xMinYMax meet">
+          <path class="stem" d="M20 220 C 40 180, 60 150, 84 128 S 130 90, 150 62 S 190 30, 210 18"/>
+          <ellipse class="leaf" data-delay="1" cx="72" cy="140" rx="8" ry="14"/>
+          <ellipse class="leaf" data-delay="2" cx="118" cy="92" rx="7" ry="12"/>
+          <g class="flower" data-delay="3">
+            <circle class="petal" cx="84" cy="128" r="7"/>
+            <circle class="petal alt" cx="89" cy="122" r="6"/>
+            <circle class="center" cx="86" cy="126" r="2.6"/>
+          </g>
+          <g class="flower" data-delay="4">
+            <circle class="petal" cx="150" cy="62" r="8"/>
+            <circle class="petal alt" cx="156" cy="58" r="6.5"/>
+            <circle class="center" cx="152" cy="60" r="3"/>
+          </g>
+        </svg>
+      </div>
       <h2>Technologies I Work With</h2>
       <ul class="tech-list">
         <li>C/C++</li>
