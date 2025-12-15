@@ -4,26 +4,37 @@
   <meta charset="UTF-8">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Loisel Kleijnen Portfolio</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav>
-    <a href="index.html">Home</a> |
-    <a href="projects.html">Projects</a> |
-    <a href="https://github.com/KupoDupo" target="_blank">GitHub</a>
-  </nav>
   <header>
-    <div class="intro">
-        <div class="header-text">
-            <h1>Hi, I'm Loisel</h1>
-            <p>I'm a game developer who loves creating fun, small-scale projects. Outside of games, I'm passionate about UX/UI, software development, and AI automation.</p>
-        </div>
-        <img src="images/desk-icon.png" alt="Desk Icon" class="header-image">
-    </div>
+    <nav> <img src="images/menu_open.png" alt="menu" class="menu"> </nav>
+    <h1>Hi, I'm Loisel</h1>
+    <p>I'm a game developer who loves creating fun, small-scale projects. Outside of games, I'm passionate about UX/UI,
+      software development, and AI automation.</p>
   </header>
+  
+  <img src="images/cloud_layer.png" alt="Layer of Clouds" class="cloud-transition">
+
+  <section class="about">
+    <div class="reveal"> 
+      <h2>About Me</h2>
+      <div class="about-text">
+        <p>
+        I'm Loisel Kleijnen, a soon to be UCSC graduate in Computer Science: Game Design. I enjoy building games using engines like Unity and Godot, or just some plain Javascript. I have experience in full-stack web development, leveraging technologies such as Angular and Firebase, as well as UX/UI design. When I'm not coding, I love rock climbing, playing video games, and learning new languages (both programming and linguistic - I currently speak English, Dutch, and French). 
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="curtains-container">
+    <div class="curtain blue-curtain"></div>
+    <div class="curtain lp-curtain"></div>
+    <div class="curtain dp-curtain"></div>
+  </div>
 
   <section class="projects">
     <div class="reveal">
@@ -41,19 +52,6 @@
         </div>
       </div>
       <h3><a href="projects.html" class="more-projects">See More Projects</a></h3>
-    </div>
-  </section>
-
-  <section class="about">
-    <div class="reveal"> 
-      <img src="images/pink-cloud.png" alt="Pink Cloud" class="about-cloud">
-      <h2>About Me</h2>
-      <p>
-        I'm Loisel Kleijnen, a soon to be UCSC graduate in Computer Science:Game Design.
-        I enjoy building games using engines like Unity and Godot, or just some plain Javascript.
-        I have experience in full-stack web development, leveraging technologies such as Angular and Firebase, as well as UX/UI design.
-        When I'm not coding, I love rock climbing, playing video games, and learning new languages (I currently speak English, Dutch, French and am learning Italian).
-      </p>
     </div>
   </section>
 
@@ -82,6 +80,7 @@
   <footer>
     <p>© 2025 Loisel Kleijnen | <a href="mailto:lnkleijnen@gmail.com">Contact Me</a></p>
   </footer>
+
   <script>
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -99,6 +98,27 @@
 
     const hiddenElements = document.querySelectorAll('.reveal');
     hiddenElements.forEach((el) => observer.observe(el));
+
+    // Curtain animation on scroll
+    const curtainObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const curtainContainer = document.querySelector('.curtains-container');
+            if (entry.isIntersecting) {
+                // Projects section is visible, raise the curtains
+                curtainContainer.classList.add('curtains-up');
+            } else {
+                // Projects section is not visible, lower the curtains
+                curtainContainer.classList.remove('curtains-up');
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    const projectsSection = document.querySelector('.projects');
+    if (projectsSection) {
+        curtainObserver.observe(projectsSection);
+    }
   </script>
 </body>
 </html>
