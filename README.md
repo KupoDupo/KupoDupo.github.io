@@ -44,4 +44,4 @@ Will people even look at this if I have a featured section on the main page?
 Currently has two projects - try to get up to at least 10 
 
 # ???
-Style tech list, update tech list (?), update floating flowers for other screen sizes so they don't go above about me div, update menu bar to actually work with contact info (email, linkedin, resume, project page once that's ready?)
+Style tech list, update tech list (?), update floating flowers for other screen sizes so they don't go above about me div, update menu bar to actually work with contact info (email, linkedin, resume, project page once that's ready?), overall responsiveness check for styling
